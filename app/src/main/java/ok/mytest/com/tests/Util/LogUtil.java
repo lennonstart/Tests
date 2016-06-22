@@ -12,12 +12,12 @@ import java.util.Locale;
 public class LogUtil {
 
     private static final String TIMESTAMP = "yyyy-MM-dd HH:mm:ss";
-
+    private static final  String TRANSFORM = "%s----%s";
     public  static  void d(String tag,String msg){
         if(BuildConfig.DEBUG){
             SimpleDateFormat format  = new SimpleDateFormat(TIMESTAMP, Locale.CHINA);
             String  date = format.format(new Date(System.currentTimeMillis()));
-            Log.d(tag,String.format(date,msg));
+            Log.d(tag,String.format(TRANSFORM,date,msg));
         }
     }
 }

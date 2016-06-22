@@ -15,11 +15,10 @@ public class MainModel {
     private  DataPresenter<Gift> mDataPresenter;
     public MainModel(DataPresenter<Gift> dataPresenter){
         this.mDataPresenter = dataPresenter;
-        loadData();
     }
 
-    private void loadData() {
-        ApiHelper.addFilter(Api.obtain().getData()).subscribe(new Action1<BaseBean<Gift>>() {
+    public void loadData() {
+        ApiHelper.addFilter(Api.obtain().getData("263")).subscribe(new Action1<BaseBean<Gift>>() {
             @Override
             public void call(BaseBean<Gift> weatherinfoBeanBaseBean) {
                 mDataPresenter.loadDataSuccess(weatherinfoBeanBaseBean);
